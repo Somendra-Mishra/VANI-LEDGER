@@ -1,0 +1,9 @@
+{
+  "name": "VANI-LEDGER Seller Intelligence",
+  "short_name": "VANI-LEDGER",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f4f6fa",
+  "theme_color": "#111b2e",
+  "icons": [{"src":"/static/icon.svg","sizes":"any","type":"image/svg+xml","purpose":"any maskable"}]
+}

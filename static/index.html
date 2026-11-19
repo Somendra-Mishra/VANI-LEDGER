@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#111b2e" />
+  <meta name="description" content="VANI-LEDGER — explainable inventory intelligence for small sellers." />
+  <link rel="manifest" href="/static/manifest.webmanifest" />
+  <link rel="icon" href="/static/icon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="/static/styles.css" />
+  <title>VANI-LEDGER | Seller Intelligence</title>
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar">
+      <div class="brand-lockup">
+        <div class="brand-mark">V<span>•</span></div>
+        <div><div class="brand-name">VANI<span>-LEDGER</span></div><div class="brand-sub">SELLER INTELLIGENCE</div></div>
+      </div>
+      <div class="workspace-label">WORKSPACE</div>
+      <nav class="nav-list" aria-label="Main navigation">
+        <button class="nav-item active" data-page="dashboard"><span class="nav-icon">▦</span> Overview</button>
+        <button class="nav-item" data-page="inventory"><span class="nav-icon">▤</span> Inventory <span class="nav-count" id="navProductCount">0</span></button>
+        <button class="nav-item" data-page="inputs"><span class="nav-icon">＋</span> Sales & inputs</button>
+        <button class="nav-item" data-page="forecasts"><span class="nav-icon">⌁</span> Forecast & why</button>
+        <button class="nav-item" data-page="simulator"><span class="nav-icon">◈</span> What-if simulator</button>
+        <button class="nav-item" data-page="settings"><span class="nav-icon">⚙</span> Events & settings</button>
+      </nav>
+      <div class="sidebar-bottom">
+        <div class="local-card"><div class="local-dot"></div><div><strong>Local-first workspace</strong><small>Data stays in your SQLite file</small></div></div>
+        <div class="sidebar-foot">AARAMBHATHON 2026 · PS 01<br/><span>FinTech · Commerce · Inclusion</span></div>
+      </div>
+    </aside>
+
+    <main class="main-area">
+      <header class="topbar">
+        <button class="mobile-menu" id="mobileMenu" aria-label="Open navigation">☰</button>
+        <div class="breadcrumbs"><span>VANI-LEDGER</span><i>/</i><strong id="pageName">Overview</strong></div>
+        <div class="top-actions">
+          <button class="icon-button" id="themeToggle" title="Toggle Light/Dark Theme" aria-label="Toggle theme">🌙</button>
+          <div class="system-status"><span class="status-dot"></span><span>ENGINE READY</span></div>
+          <button class="icon-button" id="exportBackup" title="Download a full JSON backup">↓</button>
+          <div class="avatar">SM</div>
+        </div>
+      </header>
+      <section class="page-content" id="pageContent" aria-live="polite">
+        <div class="loading-state"><div class="spinner"></div><span>Preparing your seller workspace…</span></div>
+      </section>
+      <footer class="app-footer"><span>VANI-LEDGER <b>·</b> Explainable inventory intelligence</span><span>Local demo build <b>1.0.0</b></span></footer>
+    </main>
+  </div>
+
+  <!-- Recommendation Explanation Slide-Over Drawer -->
+  <div class="drawer-backdrop" id="drawerBackdrop"></div>
+  <aside class="slide-drawer" id="recommendationDrawer" aria-label="Recommendation explanation and simulator">
+    <div class="drawer-head">
+      <div>
+        <div class="drawer-eyebrow">REPLENISHMENT ADVICE / ऑर्डर सलाह</div>
+        <div class="drawer-title" id="drawerTitle">Product Explanation</div>
+      </div>
+      <button class="drawer-close" id="drawerClose" aria-label="Close drawer">✕</button>
+    </div>
+    <div class="drawer-body" id="drawerBody">
+      <!-- Populated dynamically by app.js -->
+    </div>
+  </aside>
+
+  <div class="toast-region" id="toastRegion" aria-live="polite"></div>
+  <script src="/static/app.js"></script>
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => navigator.serviceWorker.register('/sw.js').catch(() => {}));
+    }
+  </script>
+</body>
+</html>
